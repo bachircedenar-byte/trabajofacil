@@ -1,0 +1,20 @@
+# Plantilla de despliegue para Render (https://render.com).
+# Uso: en Render, "New" -> "Blueprint" -> apunta a este repositorio.
+# El disco persistente es imprescindible: la base es SQLite y vive en disco.
+services:
+  - type: web
+    name: trabajofacil
+    runtime: node
+    plan: starter          # el plan gratuito no incluye disco persistente
+    buildCommand: ""       # no hay dependencias npm que instalar
+    startCommand: node servidor/app.mjs
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: TF_DB
+        value: /var/data/trabajofacil.db
+    disk:
+      name: datos
+      mountPath: /var/data
+      sizeGB: 1

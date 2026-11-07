@@ -1,0 +1,34 @@
+# Base de datos: se crea y se siembra sola en el primer arranque.
+# No se versiona (binario); en producción va a un disco persistente (TF_DB).
+datos/
+*.db
+*.db-shm
+*.db-wal
+
+# Subidas de los usuarios (DNI/NIE, selfies, fotos del trabajo, avatares).
+# Los ficheros de demostración los regenera la semilla al arrancar.
+contenido/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# Sistema de este proyecto
+_tmp_*.mjs
+*.log

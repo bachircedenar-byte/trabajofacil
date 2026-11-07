@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <defs><linearGradient id="v" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c96a9e"/><stop offset="1" stop-color="#101c19" stop-opacity=".85"/>
+  </linearGradient></defs>
+  <rect width="160" height="160" fill="url(#v)"/>
+  <circle cx="80" cy="62" r="28" fill="#fff" opacity=".9"/>
+  <path d="M20 160 C20 118 46 100 80 100 C114 100 140 118 140 160 Z" fill="#fff" opacity=".9"/>
+  <text x="80" y="152" text-anchor="middle" font-family="Montserrat,Segoe UI,Arial,sans-serif"
+        font-size="22" font-weight="700" fill="#101c19" opacity=".75">LF</text>
+</svg>
