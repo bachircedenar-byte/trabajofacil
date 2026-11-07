@@ -1,0 +1,10 @@
+# Base de datos y subidas generadas en runtime
+datos/
+contenido/
+
+# Secretos
+.env
+.env.*
+
+# Scripts temporales
+_tmp_*.mjs
