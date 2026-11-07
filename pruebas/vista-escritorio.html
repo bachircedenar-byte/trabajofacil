@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pruebas de maquetación — TrabajoFácil</title>
+<style>
+  body{ margin:0; background:#1b1b1b; font:13px/1.4 "Segoe UI",Arial,sans-serif; color:#fff }
+  h2{ margin:0 0 .4rem; padding:.6rem .8rem; background:#0d0d0d; font-size:12px; letter-spacing:.05em; text-transform:uppercase }
+  .marco{ overflow:hidden; background:#fff; border-top:2px solid #2ea378 }
+  iframe{ border:0; display:block; transform-origin:top left }
+  .envoltura{ padding:0 0 1.2rem }
+</style>
+</head>
+<body>
+
+<div class="envoltura">
+  <h2>Portada — escritorio 1280 px (escala 55 %)</h2>
+  <div class="marco" id="v1"></div>
+</div>
+
+<div class="envoltura">
+  <h2>Publicar tarea — escritorio 1280 px (escala 55 %)</h2>
+  <div class="marco" id="v2"></div>
+</div>
+
+<div class="envoltura">
+  <h2>Ficha de profesional — escritorio 1280 px (escala 55 %)</h2>
+  <div class="marco" id="v3"></div>
+</div>
+
+<script>
+  function montar(destino, url, ancho, alto, escala) {
+    var f = document.createElement('iframe');
+    f.src = url; f.width = ancho; f.height = alto;
+    f.style.transform = 'scale(' + escala + ')';
+    var caja = document.getElementById(destino);
+    caja.style.width = (ancho * escala) + 'px';
+    caja.style.height = (alto * escala) + 'px';
+    caja.appendChild(f);
+  }
+  montar('v1', '/', 1280, 4400, 0.55);
+  montar('v2', '/publicar-tarea', 1280, 1100, 0.55);
+  montar('v3', '/t/2', 1280, 1300, 0.55);
+</script>
+</body>
+</html>
