@@ -23,8 +23,10 @@ const rutas = [
   '/mi-cuenta/mensajes', '/mi-cuenta/facturacion', '/publicar-tarea',
   '/profesional', '/profesional/perfil', '/profesional/verificacion', '/profesional/ofertas',
   '/profesional/presupuestos', '/profesional/mensajes', '/profesional/ingresos', '/profesional/ranking',
+  '/profesional/tokens',
   '/admin', '/admin/usuarios', '/admin/verificaciones', '/admin/tareas', '/admin/presupuestos',
-  '/admin/categorias', '/admin/ciudades', '/admin/transacciones', '/admin/landings', '/admin/auditoria'
+  '/admin/categorias', '/admin/ciudades', '/admin/transacciones', '/admin/tokens', '/admin/landings',
+  '/admin/auditoria'
 ];
 
 for (const r of rutas) {
