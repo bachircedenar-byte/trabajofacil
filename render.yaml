@@ -6,7 +6,18 @@ services:
     name: trabajofacil
     runtime: node
     plan: starter          # el plan gratuito no incluye disco persistente
-    buildCommand: ""       # no hay dependencias npm que instalar
+    buildCommand: |
+      # Sin dependencias npm que instalar. El build arranca el servidor, ejecuta
+      # las cuatro baterías de pruebas y solo despliega si todas pasan.
+      node servidor/app.mjs & SRV=$!
+      node -e "const w=async()=>{for(let i=0;i<40;i++){try{const r=await fetch('http://127.0.0.1:4174/');if(r.ok){console.log('servidor listo');return}}catch(e){}await new Promise(r=>setTimeout(r,500))}console.error('el servidor no arranco');process.exit(1)};w()" \
+        && node herramientas/probar.mjs \
+        && node herramientas/probar-flujo.mjs \
+        && node herramientas/probar-subida.mjs \
+        && node herramientas/diagnostico.mjs
+      CODE=$?
+      kill $SRV 2>/dev/null || true
+      exit $CODE
     startCommand: node servidor/app.mjs
     healthCheckPath: /
     envVars:

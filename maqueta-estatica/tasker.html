@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil de profesional — TrabajoFácil</title>
+<meta name="description" content="Perfil verificado, valoración y opiniones de un profesional en TrabajoFácil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/estilos.css">
+<link rel="icon" href="../assets/img/marca.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="cabecera-sitio">
+  <nav class="navbar row" aria-label="Principal">
+    <a class="brand" href="index.html" aria-label="TrabajoFácil, inicio">
+      <img src="../assets/img/marca.svg" alt="" width="38" height="38">
+      <span class="marca-texto">trabajo<em>fácil</em></span>
+    </a>
+    <div class="nav-acciones">
+      <a class="btn btn-sm" href="publicar-tarea.html">Pide presupuestos</a>
+      <a class="nav-user" href="#" aria-label="Iniciar sesión">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="perfil" id="perfil"></main>
+
+<footer class="pie">
+  <div class="row">
+    <div class="columns">
+      <div class="pie-abajo">
+        <span>© <span id="anio">2026</span> TrabajoFácil — Prototipo de demostración</span>
+        <span>Pago 100% seguro</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/datos.js"></script>
+<script>
+(function () {
+  'use strict';
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  var id = parseInt(new URLSearchParams(location.search).get('id') || '17954', 10);
+  var t = TASKERS.filter(function (x) { return x.id === id; })[0] || TASKERS[0];
+  var cat = CATEGORIAS.filter(function (c) { return c.slug === t.categoria; })[0];
+  var relatedos = TASKERS.filter(function (x) { return x.id !== t.id; }).slice(0, 3);
+
+  var opiniones = [
+    { quien: 'Marta R.', fecha: 'hace 2 semanas', texto: 'Puntual y muy profesional. Explicó el trabajo antes de empezar y dejó todo como acordamos.' },
+    { quien: 'Javier P.', fecha: 'hace 1 mes', texto: 'Segunda vez que contrato con ' + t.nombre + '. Siempre responde rápido y el precio se ajusta a lo acordado.' },
+    { quien: 'Ana C.', fecha: 'hace 2 meses', texto: 'Encantada con el trabajo. Avisó cuando terminaba y hasta el detalle de dejar limpio.' }
+  ];
+
+  document.getElementById('perfil').innerHTML =
+    '<div class="perfil-cab">'
+    + '<img src="../assets/' + t.img + '" alt="' + esc(t.nombre) + '" width="132" height="132">'
+    + '<div><h1>' + esc(t.nombre) + '</h1>'
+    + '<div class="estrellas">★★★★★ <span style="color:var(--texto-2)">' + t.valoracion.toFixed(1) + ' · ' + t.opiniones + ' opiniones</span></div>'
+    + '<div class="meta">' + esc(t.titulo) + ' · En TrabajoFácil desde ' + t.desde + '</div>'
+    + '<div class="etiquetas">'
+    + (cat ? '<span class="etiqueta">' + esc(cat.nombre) + '</span>' : '')
+    + '<span class="etiqueta">' + esc(t.ciudad) + '</span>'
+    + (t.verificado ? '<span class="etiqueta">Identidad verificada</span>' : '<span class="etiqueta" style="background:#fdf3e3;color:#a87400">Verificación en curso</span>')
+    + '</div></div></div>'
+
+    + '<div class="panel"><h3>Datos</h3><div class="factores">'
+    + '<div><b>' + t.precio.toFixed(2).replace('.', ',') + ' €/h</b><span>Precio por hora</span></div>'
+    + '<div><b>' + t.opiniones + '</b><span>Opiniones</span></div>'
+    + '<div><b>' + t.valoracion.toFixed(1) + '/5</b><span>Valoración media</span></div>'
+    + '<div><b>' + esc(t.ciudad) + '</b><span>' + esc(t.provincia) + '</span></div>'
+    + '</div></div>'
+
+    + '<div class="panel"><h3>Sobre ' + esc(t.nombre) + '</h3>'
+    + '<p style="color:var(--texto-2);margin:0">Profesional verificado por TrabajoFácil. Los clientes valoran la '
+    + 'puntualidad, la calidad del trabajo y la claridad en los presupuestos. Todas las tareas incluyen '
+    + 'acompañamiento durante su ejecución.</p></div>'
+
+    + '<div class="panel"><h3>Opiniones (' + t.opiniones + ')</h3>'
+    + opiniones.map(function (o) {
+        return '<div class="opinion"><div class="quien">' + esc(o.quien) + '</div>'
+          + '<div class="fecha">' + esc(o.fecha) + ' · Servicio verificado</div>'
+          + '<p style="margin:.5rem 0 0">' + esc(o.texto) + '</p></div>';
+      }).join('')
+    + '</div>'
+
+    + '<div class="panel"><h3>Otros profesionales</h3><div class="taskers-mini">'
+    + relatedos.map(function (x) {
+        return '<a class="tasker-mini" href="tasker.html?id=' + x.id + '" style="text-decoration:none">'
+          + '<img src="../assets/' + x.img + '" alt=""><div class="datos"><b>' + esc(x.nombre) + '</b>'
+          + '<span>' + esc(x.ciudad) + ' · ★ ' + x.valoracion.toFixed(1) + '</span></div>'
+          + '<span style="color:var(--verde);font-weight:700">' + x.precio.toFixed(2).replace('.', ',') + ' €/h</span></a>';
+      }).join('')
+    + '</div></div>'
+
+    + '<div class="stepper-nav" style="max-width:760px;margin:0 auto">'
+    + '<a class="btn-fantasma" href="index.html" style="text-decoration:none">← Volver</a>'
+    + '<a class="btn" href="publicar-tarea.html?categoria=' + encodeURIComponent(t.categoria) + '">Pedir presupuesto a ' + esc(t.nombre) + '</a>'
+    + '</div>';
+
+  var anio = document.getElementById('anio');
+  if (anio) anio.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
