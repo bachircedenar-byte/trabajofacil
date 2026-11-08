@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pide tu presupuesto — TrabajoFácil</title>
+<meta name="description" content="Describe tu tarea en 2 minutos y recibe hasta 4 presupuestos de profesionales verificados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/estilos.css">
+<link rel="icon" href="../assets/img/marca.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="cabecera-sitio">
+  <nav class="navbar row" aria-label="Principal">
+    <a class="brand" href="index.html" aria-label="TrabajoFácil, inicio">
+      <img src="../assets/img/marca.svg" alt="" width="38" height="38">
+      <span class="marca-texto">trabajo<em>fácil</em></span>
+    </a>
+    <div class="nav-acciones">
+      <a class="nav-user" href="#" aria-label="Iniciar sesión">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="stepper">
+  <h1>Pide tu presupuesto</h1>
+  <p class="intro">Son 2 minutos. Al final recibirás hasta 4 presupuestos de profesionales verificados en tu zona.</p>
+
+  <div class="pasos-ind" id="pasosInd" aria-hidden="true"></div>
+  <div id="zonaPaso"></div>
+</main>
+
+<footer class="pie">
+  <div class="row">
+    <div class="columns">
+      <div class="pie-abajo">
+        <span>© <span id="anio">2026</span> TrabajoFácil — Prototipo de demostración</span>
+        <span>Pago 100% seguro</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/datos.js"></script>
+<script src="../assets/js/publicar.js"></script>
+</body>
+</html>

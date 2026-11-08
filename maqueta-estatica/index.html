@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrabajoFácil — Valora tu tiempo. Contrata con gente de confianza</title>
+<meta name="description" content="Encuentra a quien te eche una mano con limpieza, mudanzas, reparaciones, informática y más. Pide hasta 4 presupuestos y elige el mejor. Fácil, rápido y seguro.">
+<meta property="og:title" content="TrabajoFácil — Valora tu tiempo">
+<meta property="og:description" content="Pide presupuestos a profesionales verificados y contrata en minutos.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/estilos.css">
+<link rel="icon" href="../assets/img/marca.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ============ CABECERA ============ -->
+<header class="cabecera-sitio">
+  <nav class="navbar row" aria-label="Principal">
+    <a class="brand" href="index.html" aria-label="TrabajoFácil, inicio">
+      <img src="../assets/img/marca.svg" alt="" width="38" height="38">
+      <span class="marca-texto">trabajo<em>fácil</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#por-que">Por qué TrabajoFácil</a></li>
+      <li><a href="publicar-tarea.html">Pide presupuestos</a></li>
+    </ul>
+    <div class="nav-acciones">
+      <a class="btn btn-hollow btn-sm" href="#cta">Hazte profesional</a>
+      <a class="btn btn-sm" href="publicar-tarea.html">Pide presupuestos</a>
+      <a class="nav-user" href="#" aria-label="Iniciar sesión">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+        </svg>
+      </a>
+    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="menu-panel" id="menuPanel">
+    <a href="#servicios">Servicios</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#por-que">Por qué TrabajoFácil</a>
+    <a href="publicar-tarea.html">Pide presupuestos</a>
+    <a href="#cta">Hazte profesional</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="row">
+    <div class="columns">
+      <h1>Valora tu tiempo.<br>Contrata con TrabajoFácil</h1>
+      <h3>Dinos qué necesitas y recibirás hasta 4 presupuestos<br>adaptados a ti</h3>
+
+      <div class="buscador" id="buscador">
+        <label class="sr" for="busqueda">En qué quieres que te ayudemos</label>
+        <input id="busqueda" class="buscador-input" type="text" autocomplete="off" role="combobox"
+               aria-expanded="false" aria-controls="sugerencias" aria-autocomplete="list"
+               placeholder="En qué quieres que te ayudemos">
+        <button class="buscador-limpiar" id="buscadorLimpiar" type="button" hidden aria-label="Borrar búsqueda">&times;</button>
+        <div class="sugerencias" id="sugerencias" role="listbox" hidden></div>
+      </div>
+
+      <p class="mt-2" style="opacity:.85;font-size:.85rem">
+        <a href="publicar-tarea.html" style="color:#fff;text-decoration:underline">O publica tu tarea sin buscar</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIFRAS ============ -->
+<section class="row">
+  <div class="columns">
+    <ul class="cifras">
+      <li class="cifra"><strong data-cuenta="12480">12.480</strong><span>Profesionales disponibles</span></li>
+      <li class="cifra"><strong data-cuenta="4.8" data-decimales="1">4,8/5</strong><span>Valoración media</span></li>
+      <li class="cifra"><strong data-cuenta="37">37</strong><span>Ciudades activas</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ MAPA ============ -->
+<section class="mapa">
+  <div class="row">
+    <div class="columns medium-6 large-5">
+      <h4>¿Dónde estamos?</h4>
+      <p>Profesionales disponibles para ayudarte en lo que necesites, cerca de tu domicilio. Cuéntanos tu código postal y te mostramos los más cercanos.</p>
+      <a class="btn" href="publicar-tarea.html">Pide presupuesto gratis</a>
+    </div>
+    <div class="columns medium-6 large-7">
+      <div class="mapa-img"><img src="../assets/img/mapa.svg" alt="Mapa de profesionales disponibles en España" width="800" height="450"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="servicios" id="servicios">
+  <div class="row">
+    <div class="columns"><h2>¿En qué podemos ayudarte?</h2></div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <div class="tarjetas">
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=limpieza-de-hogar" style="background-image:url('../assets/img/area-limpieza.svg')">
+          <span class="precio">desde 12,50 €/h</span><h3>Trabajos de limpieza</h3><p>¿Necesitas ayuda con la limpieza de tu casa u oficina?</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=manitas-a-domicilio" style="background-image:url('../assets/img/area-reparaciones.svg')">
+          <span class="precio">desde 15,00 €/h</span><h3>Reparaciones y oficios</h3><p>Reparaciones en el hogar, vehículo y proyectos menores</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=mudanzas" style="background-image:url('../assets/img/area-mudanzas.svg')">
+          <span class="precio">desde 22,00 €/h</span><h3>Mudanzas y transporte</h3><p>Mudanzas, muebles grandes y transporte de objetos</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=informatica-y-tecnologia" style="background-image:url('../assets/img/area-informatica.svg')">
+          <span class="precio">desde 20,00 €/h</span><h3>Informática y tecnología</h3><p>Ordenadores, wifi y todo lo que te bloquea el día</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=cuidado-de-mascotas" style="background-image:url('../assets/img/area-mascotas.svg')">
+          <span class="precio">desde 13,00 €/h</span><h3>Animales y mascotas</h3><p>Cuidar, pasear y acompañar a tu mascota</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=eventos-y-fiestas" style="background-image:url('../assets/img/area-eventos.svg')">
+          <span class="precio">desde 17,00 €/h</span><h3>Fiestas y eventos</h3><p>Todo lo que necesitas para que tu evento salga bien</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=limpieza-de-oficinas" style="background-image:url('../assets/img/area-oficinas.svg')">
+          <span class="precio">desde 13,00 €/h</span><h3>Oficinas y empresas</h3><p>Mantenimiento y servicios para negocios y empresas</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=peluqueria-y-estetica" style="background-image:url('../assets/img/area-deporte.svg')">
+          <span class="precio">desde 16,00 €/h</span><h3>Deporte y cuidado personal</h3><p>Cuida de ti: deporte, masajes y estética a domicilio</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=clases-particulares" style="background-image:url('../assets/img/area-educacion.svg')">
+          <span class="precio">desde 15,00 €/h</span><h3>Clases particulares</h3><p>Idiomas, refuerzo escolar y lo que quieras aprender</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=urgencias-24h" style="background-image:url('../assets/img/area-urgencia.svg')">
+          <span class="precio">urgencia</span><h3>Urgencias 24 h</h3><p>Para cuando necesitas ayuda ya y sin improvisar</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=cuidado-de-personas" style="background-image:url('../assets/img/area-personas.svg')">
+          <span class="precio">desde 16,00 €/h</span><h3>Cuidado de personas</h3><p>Acompañamiento para mayores, niños o quien lo necesite</p></a></div>
+        <div class="tarjeta"><a href="publicar-tarea.html?categoria=destacados" style="background-image:url('../assets/img/area-destacados.svg')">
+          <span class="precio">top</span><h3>Destacados</h3><p>Nuestra selección de los servicios más buscados</p></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="como-funciona" id="como-funciona">
+  <div class="row">
+    <div class="columns"><h2>¿Cómo funciona?</h2></div>
+  </div>
+  <div class="row">
+    <div class="columns medium-6 large-4">
+      <div class="paso">
+        <span class="num">1</span>
+        <h3>Cuéntanos qué necesitas</h3>
+        <p>Elige un servicio y dinos cómo y cuándo te podemos ayudar. Tarda menos de 2 minutos.</p>
+      </div>
+    </div>
+    <div class="columns medium-6 large-4">
+      <div class="paso">
+        <span class="num">2</span>
+        <h3>Escoge un profesional</h3>
+        <p>Recibe hasta 4 presupuestos y elige por precio, cercanía o reputación. Tú decides.</p>
+      </div>
+    </div>
+    <div class="columns medium-6 large-4">
+      <div class="paso">
+        <span class="num">3</span>
+        <h3>Disfruta de tu tiempo</h3>
+        <p>Pagas online de forma segura y valoras el trabajo. Así los mejores reciben más tareas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUÉ ============ -->
+<section class="porque" id="por-que">
+  <div class="row">
+    <div class="columns"><h4>¿Por qué TrabajoFácil?</h4></div>
+  </div>
+  <div class="row">
+    <div class="columns large-3">
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2ea378" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 6 L54 16 v16c0 14-9.5 22-22 26C19.5 54 10 46 10 32V16z"/><path d="M23 32l6.5 6.5L42 26"/>
+        </svg>
+        <h3>Seguro</h3>
+        <p>Todos los profesionales están verificados y el pago online está protegido hasta que el trabajo está hecho.</p>
+      </div>
+    </div>
+    <div class="columns large-3">
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2ea378" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="32" r="25"/><path d="M20 33l8 8 16-18"/>
+        </svg>
+        <h3>Rápido</h3>
+        <p>Dinos qué necesitas, dónde y en menos de 5 minutos tienes las primeras respuestas.</p>
+      </div>
+    </div>
+    <div class="columns large-3">
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2ea378" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 22h36M14 32h36M14 42h22"/><circle cx="48" cy="43" r="8"/><path d="M44 43l3 3 5-6"/>
+        </svg>
+        <h3>Negociable</h3>
+        <p>Los profesionales envían su presupuesto y tú eliges. El precio final lo acordáis vosotros.</p>
+      </div>
+    </div>
+    <div class="columns large-3">
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2ea378" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="18" width="48" height="32" rx="5"/><path d="M8 28h48"/><path d="M22 38h8"/>
+        </svg>
+        <h3>Pago online</h3>
+        <p>Paga con tarjeta o Bizum cuando aceptes el presupuesto. Sin efectivo y sin sorpresas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section class="testimonios">
+  <div class="row">
+    <div class="columns"><h3>Nuestros clientes opinan</h3></div>
+  </div>
+  <div class="row">
+    <div class="columns medium-4">
+      <div class="testimonio">
+        <img src="../assets/img/avatar-1.svg" alt="Nuria S." width="150" height="150">
+        <div class="nombre">Nuria S.</div>
+        <blockquote>“Llegó antes de la hora prevista para conocer el trabajo. Dejó todo perfecto y avisaba cuando terminaba. Totalmente recomendable.”</blockquote>
+      </div>
+    </div>
+    <div class="columns medium-4">
+      <div class="testimonio">
+        <img src="../assets/img/avatar-2.svg" alt="Radik I." width="150" height="150">
+        <div class="nombre">Radik I.</div>
+        <blockquote>“Encantado con Radik, persona estupenda y excelente trabajador. Volveremos a contar con él sin duda.”</blockquote>
+      </div>
+    </div>
+    <div class="columns medium-4">
+      <div class="testimonio">
+        <img src="../assets/img/avatar-3.svg" alt="Miguel V." width="150" height="150">
+        <div class="nombre">Miguel V.</div>
+        <blockquote>“Resolvió el problema con muy poca vuelta: rápido, claro y con un precio razonable. Sin duda lo recomiendo.”</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA PROFESIONALES ============ -->
+<section class="banner-cta" id="cta">
+  <div class="row">
+    <div class="columns">
+      <h4>Conviértete en profesional</h4>
+      <p>Ofrecete para hacer el trabajo que te gusta, cerca de ti. Publica tu perfil, marca tu precio y elige tus tareas.</p>
+      <a class="boton-linea" href="#">Date de alta</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLABORADORES ============ -->
+<section class="colaboradores">
+  <div class="row">
+    <div class="columns">
+      <h3>Colaboraciones</h3>
+      <div class="marcas">
+        <span class="marca">Seguros hogar</span>
+        <span class="marca">Muebles</span>
+        <span class="marca">Electrodomésticos</span>
+        <span class="marca">Bricolaje</span>
+        <span class="marca">Alquiler de vans</span>
+        <span class="marca">Formación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENLACES SEO (generado) ============ -->
+<section class="enlaces-seo">
+  <div class="row">
+    <div class="columns medium-6 large-3">
+      <h4>Principales servicios</h4>
+      <ul id="seo-servicios"></ul>
+    </div>
+    <div class="columns medium-6 large-9">
+      <h4>Servicios más demandados por población</h4>
+      <ul id="seo-ciudades"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIE ============ -->
+<footer class="pie">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="pie-marca">
+        <a href="index.html" style="display:flex;align-items:center;gap:.5rem">
+          <img src="../assets/img/marca.svg" alt="" width="34" height="34">
+          <span class="marca-texto" style="color:#fff">trabajo<em>fácil</em></span>
+        </a>
+        <p style="opacity:.75;font-size:.86rem;margin-top:.8rem">Valora tu tiempo. Contrata con gente de confianza, cerca de ti.</p>
+      </div>
+    </div>
+    <div class="columns large-3">
+      <h4>TrabajoFácil</h4>
+      <ul>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="publicar-tarea.html">Pide presupuestos</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+    <div class="columns large-3">
+      <h4>Profesionales</h4>
+      <ul>
+        <li><a href="#cta">Hazte profesional</a></li>
+        <li><a href="#">Cómo funciona</a></li>
+        <li><a href="#">Tarifas</a></li>
+      </ul>
+      <div class="pagos">
+        <span>Visa</span><span>Mastercard</span><span>Bizum</span>
+      </div>
+    </div>
+    <div class="columns large-3">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="aviso-legal.html#privacidad">Política de privacidad</a></li>
+        <li><a href="aviso-legal.html#cookies">Política de cookies</a></li>
+        <li><a href="aviso-legal.html#condiciones">Condiciones de uso</a></li>
+      </ul>
+      <div class="social">
+        <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <div class="pie-abajo">
+        <span>© <span id="anio">2026</span> TrabajoFácil — Plataforma de servicios por horas</span>
+        <span>Publica tu tarea y recibe hasta 4 presupuestos adaptados a ti</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/datos.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
