@@ -1,0 +1,9 @@
+name: Prueba
+on:
+  push:
+    branches: [main]
+jobs:
+  ok:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hola
