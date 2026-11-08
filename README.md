@@ -71,13 +71,33 @@ Con el servidor ya arrancado:
 node herramientas/probar.mjs            # rutas públicas, API, registro, login, paneles, CSRF
 node herramientas/probar-flujo.mjs      # flujo de negocio: tokens, presupuesto, rechazo, aceptación
 node herramientas/probar-subida.mjs     # subida de DNI y selfie (profesional y cliente) + aprobación
-node herramientas/diagnostico.mjs       # 41 rutas con timeout de 8 s: informa cuál se cuelga
+node herramientas/diagnostico.mjs       # 43 rutas con timeout de 8 s: informa cuál se cuelga
 ```
 
 Los tres primeros scripts aceptan la URL del servidor como argumento
 (`node herramientas/probar.mjs http://localhost:4175`) y `diagnostico.mjs` la lee
 de la variable `TF_BASE`, así que se pueden lanzar contra otra instancia para
 probar un despliegue.
+
+---
+
+## Despliegue
+
+El repositorio trae lo necesario para desplegar sin tocar una línea de código:
+
+| Fichero | Para qué sirve |
+|---|---|
+| `render.yaml` | plantilla *Blueprint* de Render: servicio Node 24, disco de 1 GB en `/var/data` y build con las cuatro baterías de pruebas |
+| `Dockerfile` | imagen `node:24-alpine` con volumen en `/datos` |
+| `DEPLOY.md` | guía paso a paso de Render, Docker, Railway, Fly.io y VPS |
+
+En Render: **New → Blueprint** → selecciona el repositorio. El build arranca el
+servidor, ejecuta los 124 controles y **solo despliega si todos pasan**; la URL
+sale en `https://<nombre>.onrender.com`.
+
+El proyecto incluye además `.github/workflows/ci.yml`, que hace lo mismo en cada
+`push` a `main`. Para activarlo basta con arrastrar ese fichero sobre la raíz del
+repositorio desde la web de GitHub.
 
 ---
 
