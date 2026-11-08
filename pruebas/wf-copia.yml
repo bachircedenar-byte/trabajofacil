@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  pruebas:
+    name: Pruebas end-to-end
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # El proyecto no tiene dependencias npm: no hace falta npm ci.
+
+      - name: Arrancar el servidor
+        run: |
+          node servidor/app.mjs &
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4174/ > /dev/null; then break; fi
+            sleep 1
+          done
+          curl -sf http://localhost:4174/ > /dev/null
+
+      - name: Rutas públicas, API, registro, login, paneles y CSRF
+        run: node herramientas/probar.mjs
+
+      - name: Flujo de negocio con tokens
+        run: node herramientas/probar-flujo.mjs
+
+      - name: Subida de DNI, selfie y verificación
+        run: node herramientas/probar-subida.mjs
+
+      - name: Ninguna ruta se cuelga
+        run: node herramientas/diagnostico.mjs
+
+      - name: Estado de la base de datos
+        run: |
+          node -e "
+            const { DatabaseSync } = require('node:sqlite');
+            const db = new DatabaseSync('./datos/trabajofacil.db');
+            console.log('integrity_check:', db.prepare('PRAGMA integrity_check').get().integrity_check);
+            const n = t => db.prepare('SELECT COUNT(*) AS n FROM ' + t).get().n;
+            console.log('usuarios', n('usuarios'), '| tareas', n('tareas'), '| presupuestos', n('presupuestos'));
+            db.close();
+          "
